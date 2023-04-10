@@ -1,0 +1,42 @@
+@import "./variables.scss";
+@import "./mixins";
+
+.header {
+  background-color: $primary-color;
+  color: $text-color;
+  font-family: "Quicksand", sans-serif;
+  &__items {
+    @include horizontal-flex;
+    align-items: center;
+    justify-content: space-around;
+    height: 100px;
+
+    &__name {
+      text-decoration: none;
+      font-size: 35px;
+      color: $text-color;
+    }
+
+    &__link {
+      @include horizontal-flex;
+      justify-content: space-evenly;
+      text-decoration: none;
+      width: 30rem;
+    }
+    &__link a {
+      text-decoration: none;
+      color: $white-color;
+      font-size: 25px;
+    }
+    &__link a.active {
+      text-decoration: underline;
+      text-decoration-color: $text-color;
+    }
+  }
+}
+.select {
+  font-family: "Quicksand", sans-serif;
+  padding: 0.5rem 0.8rem;
+  font-size: 15px;
+  border-radius: 8px;
+}

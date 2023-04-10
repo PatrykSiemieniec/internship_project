@@ -1,0 +1,55 @@
+@import "./variables.scss";
+@import "./mixins";
+
+.form {
+  @include vertical-flex;
+  align-items: center;
+  font-family: "Quicksand", sans-serif;
+  font-size: large;
+
+  & input {
+    width: 15rem;
+    height: 1.5rem;
+  }
+
+  & p {
+    color: red;
+    font-size: 12px;
+    text-align: center;
+  }
+  &__textarea {
+    text-align: center;
+  }
+
+  &__div {
+    @include vertical-flex;
+    align-items: center;
+  }
+
+  @include for-tablet {
+    @include horizontal-flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+
+    & label {
+      width: 120px;
+    }
+
+    &__div {
+      @include horizontal-flex;
+      justify-content: center;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    &__textarea {
+      @include horizontal-flex;
+      align-items: center;
+      justify-content: space-evenly;
+      gap: 1rem;
+      width: 100%;
+      text-align: initial;
+    }
+  }
+}

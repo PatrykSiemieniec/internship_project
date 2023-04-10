@@ -1,0 +1,13 @@
+@import "./variables.scss";
+@import "./mixins";
+
+.error_container {
+  font-family: "Quicksand", sans-serif;
+  width: 40%;
+  margin: auto;
+  text-align: center;
+}
+
+.error_container p {
+  font-size: 30px;
+}

@@ -1,0 +1,49 @@
+@import "./variables.scss";
+@import "./mixins";
+
+.grid-container {
+  font-family: "Quicksand", sans-serif;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 1rem;
+  width: 60%;
+  margin: auto;
+  margin-top: 5rem;
+}
+
+.info {
+  font-size: 30px;
+  font-family: "Quicksand", sans-serif;
+  text-align: center;
+}
+
+.grid-item {
+  border: 1px solid black;
+  padding: 10px;
+
+  &__name {
+    font-size: 25px;
+    font-weight: bold;
+    color: $second-color;
+    text-align: center;
+  }
+  &__birth {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+  &__age {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+  &__cv {
+    display: flex;
+    flex-direction: column;
+    margin-top: 0.5rem;
+    text-align: center;
+    & span {
+      font-size: larger;
+    }
+  }
+}
