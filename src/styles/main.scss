@@ -6,7 +6,7 @@
   justify-content: space-around;
   align-items: center;
   background-color: $grey-color;
-  height: calc(100vh - 100px);
+
   box-sizing: border-box;
   padding: 5rem;
   @include for-laptop {
@@ -15,18 +15,33 @@
   @include for-tablet {
     @include vertical-flex;
   }
+  @include for-mobile {
+    gap: 20px;
+  }
+  @include for-mobile {
+    padding: 1rem;
+  }
 }
-
+.actions {
+  @include for-mobile {
+    display: flex;
+    flex-direction: column;
+  }
+}
 .form {
   width: 30%;
-  background-color: $white-color;
+
+  box-sizing: border-box;
   padding: 0.5rem;
-  border-radius: 12px;
+
   @include for-laptop {
     width: 40%;
   }
   @include for-tablet {
     width: 90%;
+  }
+  @include for-mobile {
+    width: 100%;
   }
 }
 
@@ -38,5 +53,8 @@
   }
   @include for-tablet {
     width: 90%;
+  }
+  @include for-mobile {
+    width: 100%;
   }
 }

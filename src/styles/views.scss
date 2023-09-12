@@ -9,6 +9,9 @@
   width: 60%;
   margin: auto;
   margin-top: 5rem;
+  @include for-mobile {
+    width: 100%;
+  }
 }
 
 .info {

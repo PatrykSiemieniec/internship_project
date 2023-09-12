@@ -20,8 +20,8 @@ interface DataType {
 const Main: FC = () => {
   const [pagination, setPagination] = useState<number>(10);
   const [isMultipleChosen, setIsMultipleChosen] = useState<boolean>(false);
-  const [selectedRowKeys, setSelectedRowKeys] = useState<any>([]);
-  const [recordToEdit, setRecordToEdit] = useState<any>();
+  const [selectedRowKeys, setSelectedRowKeys] = useState<React.Key[]>([]);
+  const [recordToEdit, setRecordToEdit] = useState<DataType | undefined>();
   const [isEditingForm, setIsEditingForm] = useState<boolean>(false);
   const dispatch = useDispatch();
 
@@ -40,16 +40,19 @@ const Main: FC = () => {
       title: name,
       dataIndex: "name",
       key: "name",
+      ellipsis: true,
     },
     {
       title: age,
       dataIndex: "age",
       key: "age",
+      ellipsis: true,
     },
     {
       title: birth_date,
       dataIndex: "birth_date",
       key: "birth_date",
+      ellipsis: true,
     },
     {
       title: biography,
@@ -61,9 +64,10 @@ const Main: FC = () => {
       title: action,
       key: "action",
       render: (_, record) => (
-        <Space size="middle">
+        <Space size="middle" className="actions">
           <a
             onClick={() => {
+              console.log(record);
               setRecordToEdit(record);
               setIsEditingForm(true);
             }}
@@ -87,7 +91,8 @@ const Main: FC = () => {
     setPagination(pageSize);
   };
 
-  const onSelectHandler = (selectedRowKeys: any) => {
+  const onSelectHandler = (selectedRowKeys: React.Key[]) => {
+    console.log(selectedRowKeys);
     setSelectedRowKeys(selectedRowKeys);
     selectedRowKeys.length > 0
       ? setIsMultipleChosen(true)

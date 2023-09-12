@@ -52,4 +52,26 @@
       text-align: initial;
     }
   }
+
+  @include for-mobile {
+    gap: 0;
+    & label {
+      width: 80%;
+    }
+    & input {
+      width: 80%;
+    }
+    justify-content: center;
+    &__div {
+      @include vertical-flex;
+      gap: 0;
+      width: 100%;
+    }
+    &__textarea {
+      @include vertical-flex;
+      gap: 0;
+      width: 100%;
+      text-align: initial;
+    }
+  }
 }

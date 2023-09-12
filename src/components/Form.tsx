@@ -30,7 +30,7 @@ interface Record {
   biography: string | undefined;
 }
 type FormProps = {
-  recordToEdit: Record;
+  recordToEdit?: Record;
   isEditingForm: boolean;
   setIsEditingForm: Function;
 };
@@ -53,10 +53,12 @@ const Form: FC<FormProps> = (props) => {
   const dataToEdit = props.recordToEdit;
 
   useEffect(() => {
-    setKey(dataToEdit?.key);
-    setValue("name", dataToEdit?.name);
-    setValue("age", dataToEdit?.age);
-    setValue("biography", dataToEdit?.biography);
+    if (dataToEdit) {
+      setKey(dataToEdit?.key);
+      setValue("name", dataToEdit?.name);
+      setValue("age", dataToEdit?.age);
+      setValue("biography", dataToEdit?.biography);
+    }
   }, [dataToEdit]);
 
   const onSubmit = (data: FormData) => {
@@ -84,23 +86,23 @@ const Form: FC<FormProps> = (props) => {
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="form">
       <div className="form__div">
-        <label>{language.name}</label>
-        <input {...register("name")} />
+        <label htmlFor="name">{language.name}</label>
+        <input id="name" {...register("name")} />
         <p>{errors.name?.message}</p>
       </div>
       <div className="form__div">
-        <label>{language.age}</label>
-        <input {...register("age")} />
+        <label htmlFor="age">{language.age}</label>
+        <input id="age" {...register("age")} />
         <p>{errors.age?.message}</p>
       </div>
       <div className="form__div">
-        <label>{language.birth_date}</label>
-        <input type="date" {...register("birth_date")} />
+        <label htmlFor="date">{language.birth_date}</label>
+        <input id="date" type="date" {...register("birth_date")} />
         <p>{errors.birth_date?.message}</p>
       </div>
       <div className="form__textarea">
-        <label>{language.biography}</label>
-        <textarea rows={5} cols={32} {...register("biography")} />
+        <label htmlFor="bio">{language.biography}</label>
+        <textarea id="bio" rows={5} cols={32} {...register("biography")} />
         <p>{errors.biography?.message}</p>
       </div>
       {props.isEditingForm ? (
